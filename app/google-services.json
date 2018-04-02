@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "152453966230",
+    "firebase_url": "https://globantconnect.firebaseio.com",
+    "project_id": "globantconnect",
+    "storage_bucket": "globantconnect.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152453966230:android:282638f2e519fb51",
+        "android_client_info": {
+          "package_name": "com.chinmay.globantconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152453966230-0iii4o3mm9jup6d4170k3g9ikqqqskbp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn76X5aOVBV-A7O7jAix-aaeu-KFZnACc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

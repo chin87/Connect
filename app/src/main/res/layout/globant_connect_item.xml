@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+		<variable
+			name="story"
+			type="com.chinmay.globantconnect.POJO.GlobantConnectData" />
+		<variable
+			name="callback"
+			type="com.chinmay.globantconnect.UI.GlobantConnectDataAdapter"/>
+	</data>
+
+	<android.support.constraint.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/white"
+		android:orientation="vertical"
+		android:paddingBottom="4dp"
+		android:paddingLeft="2dp"
+		android:paddingRight="2dp"
+		android:paddingTop="4dp"
+		android:onClick="@{() -> callback.itemCLicked(story)}"
+		android:clickable="true">
+
+		<TextView
+			android:id="@+id/item_id"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="start"
+			android:text="@{story.getTitle()}"
+			android:textAppearance="@style/TextAppearance.AppCompat.Title"
+			tools:text="ID"
+			android:onClick="@{() -> callback.itemCLicked(story)}"
+			android:clickable="true"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"/>
+
+		<TextView
+			android:id="@+id/item_title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="start"
+			android:textAppearance="@style/TextAppearance.AppCompat.Title"
+			tools:text="title"
+			android:onClick="@{() -> callback.itemCLicked(story)}"
+			android:clickable="true"
+			android:text="@{story.getTitle()}"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/item_id"/>
+		<!---->
+
+
+		<TextView
+			android:id="@+id/item_by"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="start"
+			android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+			tools:text="By"
+			android:onClick="@{() -> callback.itemCLicked(story)}"
+			android:clickable="true"
+			android:text="@{story.getShortDescription()}"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/item_title"/>
+			<!--android:text="@{story.by}"-->
+
+		<TextView
+			android:id="@+id/item_date_title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="start"
+			android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+			tools:text="12-7-2016"
+			android:onClick="@{() -> callback.itemCLicked(story)}"
+			android:clickable="true"
+			android:text="@{story.getTimestamp()}"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/item_by"/>
+		<!--android:text="@{story.getFormattedDate()}"-->
+
+
+		<ImageView
+			android:id="@+id/item_type"
+			android:layout_width="match_parent"
+			android:layout_height="100dp"
+			android:gravity="start"
+			android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+			tools:text="type"
+			android:onClick="@{() -> callback.itemCLicked(story)}"
+			android:clickable="true"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/item_date_title"
+			app:imageUrl="@{story.getImage()}"
+			app:visibility="@{story.getImage()}"/>
+		<!--app:imageUrl="@{story.getImage()}"-->
+
+	</android.support.constraint.ConstraintLayout>
+</layout>
