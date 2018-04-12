@@ -1,4 +1,6 @@
-package com.chinmay.globantconnect.POJO;
+package com.chinmay.globantconnect.domain;
+
+import com.chinmay.globantconnect.presentation.model.GlobantConnectData;
 
 import java.util.ArrayList;
 

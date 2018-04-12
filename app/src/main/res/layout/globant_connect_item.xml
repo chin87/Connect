@@ -6,10 +6,10 @@
 	<data>
 		<variable
 			name="story"
-			type="com.chinmay.globantconnect.POJO.GlobantConnectData" />
+			type="com.chinmay.globantconnect.presentation.model.GlobantConnectData" />
 		<variable
 			name="callback"
-			type="com.chinmay.globantconnect.UI.GlobantConnectDataAdapter"/>
+			type="com.chinmay.globantconnect.presentation.view.GlobantConnectDataAdapter"/>
 	</data>
 
 	<android.support.constraint.ConstraintLayout

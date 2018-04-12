@@ -15,7 +15,8 @@
 			tools:layout_editor_absoluteX="110dp"
 			tools:layout_editor_absoluteY="2dp"
 			android:layout_centerHorizontal="true"
-			android:layout_marginTop="20dp"/>
+			android:layout_marginTop="20dp"
+			android:visibility="gone"/>
 
 
 		<android.support.v7.widget.RecyclerView

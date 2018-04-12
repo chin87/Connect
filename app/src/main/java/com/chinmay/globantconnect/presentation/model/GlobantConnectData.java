@@ -1,4 +1,4 @@
-package com.chinmay.globantconnect.POJO;
+package com.chinmay.globantconnect.presentation.model;
 
 import android.databinding.BindingAdapter;
 import android.view.View;
@@ -20,6 +20,15 @@ public class GlobantConnectData {
     private String URL;
     private String PDF;
     private String timestamp;
+
+    public GlobantConnectData(String timestamp, String title, String shortDescription, String image, String URL, String PDF) {
+        this.timestamp = timestamp;
+        this.title = title;
+        this.shortDescription = shortDescription;
+        this.image = image;
+        this.URL = URL;
+        this.PDF = PDF;
+    }
 
     public String getTimestamp() {
         return timestamp;

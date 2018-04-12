@@ -1,9 +1,8 @@
-package com.chinmay.globantconnect;
+package com.chinmay.globantconnect.presentation;
 
-import com.chinmay.globantconnect.POJO.Datacatalog;
-import com.chinmay.globantconnect.POJO.GlobantConnectData;
+import com.chinmay.globantconnect.presentation.model.GlobantConnectData;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by chinmay.deshpande on 10/11/17.
@@ -19,10 +18,10 @@ public class WorldBankDataContract {
 
             void removeProgressBar();
 
-            void showDbCatalog(ArrayList<GlobantConnectData> datacatalogArrayList);
+            void showDbCatalog(List<GlobantConnectData> datacatalogArrayList);
         }
 
-        public interface Actions {
+        public interface Presenter {
             void loadDataCatlog();
 
             void viewDestroy();

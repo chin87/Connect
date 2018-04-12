@@ -1,4 +1,4 @@
-package com.chinmay.globantconnect.UI;
+package com.chinmay.globantconnect.presentation.view;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -8,8 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.chinmay.globantconnect.POJO.GlobantConnectData;
-import com.chinmay.globnantconnect.BR;
+import com.chinmay.globantconnect.presentation.model.GlobantConnectData;
 import com.chinmay.globnantconnect.R;
 
 import java.util.ArrayList;

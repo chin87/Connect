@@ -1,20 +1,15 @@
 package com.chinmay.globnantconnect.UI;
 
-import com.chinmay.globantconnect.POJO.Datacatalog;
-import com.chinmay.globantconnect.UI.DataCatalogPresenter;
-import com.chinmay.globantconnect.WorldBankDataContract;
+import com.chinmay.globantconnect.presentation.presenter.DataCatalogPresenter;
+import com.chinmay.globantconnect.presentation.WorldBankDataContract;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Matchers;
-
-import java.util.ArrayList;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 
 /**
@@ -28,7 +23,6 @@ public class DataCatalogPresenterTest {
     @Before
     public void init(){
         view = mock(WorldBankDataContract.View.class);
-        dataCatalogPresenter = new DataCatalogPresenter(view);
     }
 
     @Test
@@ -44,9 +38,6 @@ public class DataCatalogPresenterTest {
         //verify(view).showProgressBar();
         //doThrow().when(view).removeProgressBar();
         //verify(view,timeout(10000).atLeastOnce()).removeProgressBar();
-        verify(view,timeout(10000).atLeastOnce())
-                .showDataCatlog(Matchers.<ArrayList<Datacatalog>>any());
-                //.showDataCatlog((<ArrayList<Datacatalog>>any(Datacatalog.class)));
     }
 
     @Test(expected = IllegalArgumentException.class)

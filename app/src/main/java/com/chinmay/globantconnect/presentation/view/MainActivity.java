@@ -1,4 +1,4 @@
-package com.chinmay.globantconnect.UI;
+package com.chinmay.globantconnect.presentation.view;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -8,22 +8,44 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.Toast;
 
-import com.chinmay.globantconnect.POJO.Datacatalog;
-import com.chinmay.globantconnect.POJO.GlobantConnectData;
-import com.chinmay.globantconnect.WorldBankDataContract;
+import com.chinmay.globantconnect.data.cache.ConnectCacheImpl;
+import com.chinmay.globantconnect.data.entity.ConnectDataMapper;
+import com.chinmay.globantconnect.data.repository.ConnectDataRepository;
+import com.chinmay.globantconnect.data.repository.datasource.ConnectDataStoreFactory;
+import com.chinmay.globantconnect.domain.interactor.GetConnectDataList;
+import com.chinmay.globantconnect.presentation.WorldBankDataContract;
+import com.chinmay.globantconnect.presentation.model.ConnectDataModelMapper;
+import com.chinmay.globantconnect.presentation.model.GlobantConnectData;
+import com.chinmay.globantconnect.presentation.presenter.DataCatalogPresenter;
 import com.chinmay.globnantconnect.R;
 import com.chinmay.globnantconnect.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements IClick, WorldBankDataContract.View{
+public class MainActivity extends AppCompatActivity implements IClick, WorldBankDataContract.View {
 	private ActivityMainBinding activityMainHackerNewsBinding;
 	private DataCatalogPresenter dataCatalogPresenter;
+
+	private ConnectDataModelMapper connectDataModelMapper;
+	private ConnectDataMapper connectDataMapper;
+	private ConnectCacheImpl connectCacheImpl;
+	private ConnectDataStoreFactory connectDataStoreFactory;
+	private ConnectDataRepository connectDataRepository;
+	private GetConnectDataList connectDataList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		dataCatalogPresenter = new DataCatalogPresenter(this);
+
+		connectDataModelMapper = new ConnectDataModelMapper();
+		connectDataMapper = new ConnectDataMapper();
+		connectCacheImpl = new ConnectCacheImpl();
+		connectDataStoreFactory = new ConnectDataStoreFactory(connectCacheImpl);
+		connectDataRepository = new ConnectDataRepository(connectDataStoreFactory, connectDataMapper);
+		connectDataList = new GetConnectDataList(connectDataRepository);
+
+		dataCatalogPresenter = new DataCatalogPresenter(this, connectDataList, connectDataModelMapper);
 		activityMainHackerNewsBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 		activityMainHackerNewsBinding.button.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -32,6 +54,14 @@ public class MainActivity extends AppCompatActivity implements IClick, WorldBank
 			}
 		});
 
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		if( dataCatalogPresenter != null ){
+			dataCatalogPresenter.loadDataCatlog();
+		}
 	}
 
 	@Override
@@ -85,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements IClick, WorldBank
 	}
 
 	@Override
-	public void showDbCatalog(ArrayList<GlobantConnectData> datacatalogArrayList) {
+	public void showDbCatalog(List<GlobantConnectData> datacatalogArrayList) {
 		runOnUiThread(new UIDbDataRunnable(datacatalogArrayList));
 	}
 
@@ -103,8 +133,10 @@ public class MainActivity extends AppCompatActivity implements IClick, WorldBank
 
 	private class UIDbDataRunnable implements Runnable{
 		private ArrayList<GlobantConnectData> stories;
-		public UIDbDataRunnable(ArrayList<GlobantConnectData> stories){
-			this.stories = stories;
+		public UIDbDataRunnable(List<GlobantConnectData> stories){
+			ArrayList<GlobantConnectData> globantConnectDataArrayList = new ArrayList<>(stories.size());
+			globantConnectDataArrayList.addAll(stories);
+			this.stories = globantConnectDataArrayList;
 		}
 
 		@Override

@@ -1,4 +1,4 @@
-package com.chinmay.globantconnect.POJO;
+package com.chinmay.globantconnect.domain;
 
 /**
  * Created by chinmaydeshpande on 30/10/17.

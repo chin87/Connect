@@ -1,4 +1,4 @@
-package com.chinmay.globantconnect.UI;
+package com.chinmay.globantconnect.presentation.view;
 
 import android.app.Activity;
 import android.os.Bundle;

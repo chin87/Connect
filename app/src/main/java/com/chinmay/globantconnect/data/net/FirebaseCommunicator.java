@@ -1,15 +1,11 @@
-package com.chinmay.globantconnect.communication;
+package com.chinmay.globantconnect.data.net;
 
-import com.chinmay.globantconnect.POJO.FirebaseDBMessageEvent;
-import com.chinmay.globantconnect.POJO.GlobantConnectData;
-import com.chinmay.globantconnect.POJO.MessageEvent;
+import com.chinmay.globantconnect.presentation.model.GlobantConnectData;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -57,13 +53,13 @@ public class FirebaseCommunicator {
                         GlobantConnectData user = postSnapShot.getValue(GlobantConnectData.class);
                         globantConnectData.add(user);
                     }
-                    EventBus.getDefault().post(new FirebaseDBMessageEvent(MessageEvent.SUCCESS, globantConnectData));
+                    //EventBus.getDefault().post(new FirebaseDBMessageEvent(MessageEvent.SUCCESS, globantConnectData));
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                EventBus.getDefault().post(new FirebaseDBMessageEvent(MessageEvent.FAIL, null));
+                //EventBus.getDefault().post(new FirebaseDBMessageEvent(MessageEvent.FAIL, null));
             }
         });
     }
