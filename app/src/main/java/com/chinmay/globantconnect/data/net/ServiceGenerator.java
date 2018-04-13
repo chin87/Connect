@@ -20,4 +20,14 @@ public class ServiceGenerator {
         return testService;
     }
 
+    private static FirebaseService firebaseService;
+    public static FirebaseService getFirebaseService(){
+        if(firebaseService ==null){
+            firebaseService = RetrofitHelper.getRetrofit().create(FirebaseService.class);
+        }
+        return firebaseService;
+    }
+
+
+
 }

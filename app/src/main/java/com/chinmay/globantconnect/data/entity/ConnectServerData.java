@@ -1,15 +1,11 @@
 package com.chinmay.globantconnect.data.entity;
 
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
-
 /**
- * Created by chinmay.deshpande on 10/04/18.
+ * Created by chinmay.deshpande on 13/04/18.
  */
 
-public class GlobantConnectEntity extends RealmObject {
+public class ConnectServerData {
 
-    @PrimaryKey
     private String timestamp;
     private String title;
     private String shortDescription;
@@ -17,17 +13,8 @@ public class GlobantConnectEntity extends RealmObject {
     private String URL;
     private String PDF;
 
-    public GlobantConnectEntity(){
+    public ConnectServerData() {
 
-    }
-
-    public GlobantConnectEntity(ConnectServerData connectServerData) {
-        this.timestamp = connectServerData.getTimestamp();
-        this.title = connectServerData.getTitle();
-        this.shortDescription = connectServerData.getShortDescription();
-        this.image = connectServerData.getImage();
-        this.URL = connectServerData.getURL();
-        this.PDF = connectServerData.getPDF();
     }
 
     public String getTimestamp() {

@@ -18,6 +18,7 @@ public class RetrofitHelper {
         }
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.myjson.com/")
+                //.baseUrl("https://globantconnect.firebaseio.com")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

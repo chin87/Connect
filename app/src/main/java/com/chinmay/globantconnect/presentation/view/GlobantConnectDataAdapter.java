@@ -4,6 +4,7 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,9 +85,9 @@ public class GlobantConnectDataAdapter extends RecyclerView.Adapter<GlobantConne
 	}
 
 	public void itemCLicked(GlobantConnectData storyResponse) {
-		/*Log.i("", "" + storyResponse.getUrl());
+		Log.i("", "" + storyResponse.getURL());
 		if (iClick != null) {
-			iClick.clickedForUrl(storyResponse.getUrl());
-		}*/
+			iClick.clickedForUrl(storyResponse.getURL());
+		}
 	}
 }
