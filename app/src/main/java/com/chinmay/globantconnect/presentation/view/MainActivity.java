@@ -147,11 +147,16 @@ public class MainActivity extends AppCompatActivity implements IClick, WorldBank
 
 	private void setGlobantData( ArrayList<GlobantConnectData> stories ){
 		GlobantConnectDataAdapter newsAdapter = new GlobantConnectDataAdapter(this, stories, this);
+
 		activityMainHackerNewsBinding.button.setVisibility(View.GONE);
+
 		activityMainHackerNewsBinding.rvNewsList.setVisibility(View.VISIBLE);
 		LinearLayoutManager layoutManager
 				= new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 		activityMainHackerNewsBinding.rvNewsList.setLayoutManager(layoutManager);
 		activityMainHackerNewsBinding.rvNewsList.setAdapter(newsAdapter);
+
+		ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(this, R.dimen.recycler_spacing);
+		activityMainHackerNewsBinding.rvNewsList.addItemDecoration(itemDecoration);
 	}
 }

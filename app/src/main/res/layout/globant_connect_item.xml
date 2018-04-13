@@ -1,105 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
-	xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-	<data>
-		<variable
-			name="story"
-			type="com.chinmay.globantconnect.presentation.model.GlobantConnectData" />
-		<variable
-			name="callback"
-			type="com.chinmay.globantconnect.presentation.view.GlobantConnectDataAdapter"/>
-	</data>
+    <data>
 
-	<android.support.constraint.ConstraintLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:background="@color/white"
-		android:orientation="vertical"
-		android:paddingBottom="4dp"
-		android:paddingLeft="2dp"
-		android:paddingRight="2dp"
-		android:paddingTop="4dp"
-		android:onClick="@{() -> callback.itemCLicked(story)}"
-		android:clickable="true">
+        <variable
+            name="story"
+            type="com.chinmay.globantconnect.presentation.model.GlobantConnectData" />
 
-		<TextView
-			android:id="@+id/item_id"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="start"
-			android:text="@{story.getTitle()}"
-			android:textAppearance="@style/TextAppearance.AppCompat.Title"
-			tools:text="ID"
-			android:onClick="@{() -> callback.itemCLicked(story)}"
-			android:clickable="true"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent"/>
+        <variable
+            name="callback"
+            type="com.chinmay.globantconnect.presentation.view.GlobantConnectDataAdapter" />
+    </data>
 
-		<TextView
-			android:id="@+id/item_title"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="start"
-			android:textAppearance="@style/TextAppearance.AppCompat.Title"
-			tools:text="title"
-			android:onClick="@{() -> callback.itemCLicked(story)}"
-			android:clickable="true"
-			android:text="@{story.getTitle()}"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/item_id"/>
-		<!---->
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        card_view:cardCornerRadius="4dp">
 
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clickable="true"
+            android:onClick="@{() -> callback.itemCLicked(story)}"
+            android:orientation="vertical"
+            android:paddingBottom="4dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="4dp">
 
-		<TextView
-			android:id="@+id/item_by"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="start"
-			android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-			tools:text="By"
-			android:onClick="@{() -> callback.itemCLicked(story)}"
-			android:clickable="true"
-			android:text="@{story.getShortDescription()}"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/item_title"/>
-			<!--android:text="@{story.by}"-->
+            <TextView
+                android:id="@+id/item_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:gravity="start"
+                android:onClick="@{() -> callback.itemCLicked(story)}"
+                android:text="@{story.getTitle()}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="ID" />
 
-		<TextView
-			android:id="@+id/item_date_title"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="start"
-			android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-			tools:text="12-7-2016"
-			android:onClick="@{() -> callback.itemCLicked(story)}"
-			android:clickable="true"
-			android:text="@{story.getTimestamp()}"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/item_by"/>
-		<!--android:text="@{story.getFormattedDate()}"-->
+            <TextView
+                android:id="@+id/item_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:gravity="start"
+                android:onClick="@{() -> callback.itemCLicked(story)}"
+                android:text="@{story.getTitle()}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_id"
+                tools:text="title" />
+            <!---->
 
 
-		<ImageView
-			android:id="@+id/item_type"
-			android:layout_width="match_parent"
-			android:layout_height="100dp"
-			android:gravity="start"
-			android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-			tools:text="type"
-			android:onClick="@{() -> callback.itemCLicked(story)}"
-			android:clickable="true"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/item_date_title"
-			app:imageUrl="@{story.getImage()}"
-			app:visibility="@{story.getImage()}"/>
-		<!--app:imageUrl="@{story.getImage()}"-->
+            <TextView
+                android:id="@+id/item_by"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:gravity="start"
+                android:onClick="@{() -> callback.itemCLicked(story)}"
+                android:text="@{story.getShortDescription()}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_title"
+                tools:text="By" />
+            <!--android:text="@{story.by}"-->
 
-	</android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/item_date_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:gravity="start"
+                android:onClick="@{() -> callback.itemCLicked(story)}"
+                android:text="@{story.getTimestamp()}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_by"
+                tools:text="12-7-2016" />
+            <!--android:text="@{story.getFormattedDate()}"-->
+
+
+            <ImageView
+                android:id="@+id/item_type"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:clickable="true"
+                android:gravity="start"
+                android:onClick="@{() -> callback.itemCLicked(story)}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:imageUrl="@{story.getImage()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_date_title"
+                app:visibility="@{story.getImage()}"
+                tools:text="type" />
+            <!--app:imageUrl="@{story.getImage()}"-->
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
 </layout>
