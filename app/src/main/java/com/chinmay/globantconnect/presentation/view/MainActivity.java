@@ -54,6 +54,13 @@ public class MainActivity extends AppCompatActivity implements IClick, WorldBank
 			}
 		});
 
+		LinearLayoutManager layoutManager
+				= new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+		activityMainHackerNewsBinding.rvNewsList.setLayoutManager(layoutManager);
+
+		ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(this, R.dimen.recycler_spacing);
+		activityMainHackerNewsBinding.rvNewsList.addItemDecoration(itemDecoration);
+
 	}
 
 	@Override
@@ -151,12 +158,6 @@ public class MainActivity extends AppCompatActivity implements IClick, WorldBank
 		activityMainHackerNewsBinding.button.setVisibility(View.GONE);
 
 		activityMainHackerNewsBinding.rvNewsList.setVisibility(View.VISIBLE);
-		LinearLayoutManager layoutManager
-				= new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-		activityMainHackerNewsBinding.rvNewsList.setLayoutManager(layoutManager);
 		activityMainHackerNewsBinding.rvNewsList.setAdapter(newsAdapter);
-
-		ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(this, R.dimen.recycler_spacing);
-		activityMainHackerNewsBinding.rvNewsList.addItemDecoration(itemDecoration);
 	}
 }
