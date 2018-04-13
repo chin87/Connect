@@ -23,11 +23,9 @@ public class ServiceGenerator {
     private static FirebaseService firebaseService;
     public static FirebaseService getFirebaseService(){
         if(firebaseService ==null){
-            firebaseService = RetrofitHelper.getRetrofit().create(FirebaseService.class);
+            firebaseService = new FirebaseService();
         }
         return firebaseService;
     }
-
-
 
 }
