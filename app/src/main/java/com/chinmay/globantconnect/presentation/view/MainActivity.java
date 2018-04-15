@@ -47,12 +47,12 @@ public class MainActivity extends AppCompatActivity implements IClick, WorldBank
 
 		dataCatalogPresenter = new DataCatalogPresenter(this, connectDataList, connectDataModelMapper);
 		activityMainHackerNewsBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-		activityMainHackerNewsBinding.button.setOnClickListener(new View.OnClickListener() {
+		/*activityMainHackerNewsBinding.button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				dataCatalogPresenter.loadDataCatlog();
 			}
-		});
+		});*/
 
 		LinearLayoutManager layoutManager
 				= new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
