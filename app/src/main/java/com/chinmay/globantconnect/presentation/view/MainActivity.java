@@ -19,6 +19,7 @@ import com.chinmay.globantconnect.presentation.model.GlobantConnectData;
 import com.chinmay.globantconnect.presentation.presenter.DataCatalogPresenter;
 import com.chinmay.globnantconnect.R;
 import com.chinmay.globnantconnect.databinding.ActivityMainBinding;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements IClick, WorldBank
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		FirebaseMessaging.getInstance().subscribeToTopic("connect");
+
 
 		connectDataModelMapper = new ConnectDataModelMapper();
 		connectDataMapper = new ConnectDataMapper();
