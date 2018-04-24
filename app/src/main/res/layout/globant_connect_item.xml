@@ -54,12 +54,12 @@
                 android:clickable="true"
                 android:gravity="start"
                 android:onClick="@{() -> callback.itemCLicked(story)}"
-                android:text="@{story.getTitle()}"
+                android:text="@{story.getShortDescription()}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item_id"
-                tools:text="title" />
+                tools:text="short description" />
             <!---->
 
 
@@ -70,12 +70,14 @@
                 android:clickable="true"
                 android:gravity="start"
                 android:onClick="@{() -> callback.itemCLicked(story)}"
-                android:text="@{story.getShortDescription()}"
+                android:text="@{story.getDescription()}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item_title"
-                tools:text="By" />
+                tools:text="Description"
+                android:maxLines="1"
+                android:ellipsize="end"/>
             <!--android:text="@{story.by}"-->
 
             <TextView

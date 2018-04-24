@@ -12,18 +12,21 @@ public class ConnectData {
     private String image;
     private String URL;
     private String PDF;
+    private String description;
 
     public ConnectData() {
 
     }
 
-    public ConnectData(String timestamp, String title, String shortDescription, String image, String URL, String PDF) {
+    public ConnectData(String timestamp, String title, String shortDescription, String image, String URL, String PDF,
+                       String description) {
         this.timestamp = timestamp;
         this.title = title;
         this.shortDescription = shortDescription;
         this.image = image;
         this.URL = URL;
         this.PDF = PDF;
+        this.description = description;
     }
 
     public String getTimestamp() {
@@ -74,4 +77,7 @@ public class ConnectData {
         this.PDF = PDF;
     }
 
+    public String getDescription() {
+        return description;
+    }
 }

@@ -21,7 +21,8 @@ public class ConnectDataModelMapper {
                     connectData.getShortDescription(),
                     connectData.getImage(),
                     connectData.getURL(),
-                    connectData.getPDF());
+                    connectData.getPDF(),
+                    connectData.getDescription());
         }
         return globantConnectData;
     }

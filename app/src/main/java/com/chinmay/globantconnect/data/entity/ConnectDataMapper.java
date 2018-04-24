@@ -22,7 +22,8 @@ public class ConnectDataMapper {
                     globantConnectEntity.getShortDescription(),
                     globantConnectEntity.getImage(),
                     globantConnectEntity.getURL(),
-                    globantConnectEntity.getPDF());
+                    globantConnectEntity.getPDF(),
+                    globantConnectEntity.getDescription());
         }
         return connectData;
     }

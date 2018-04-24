@@ -13,6 +13,8 @@ public class ConnectServerData {
     private String URL;
     private String PDF;
 
+    private String description;
+
     public ConnectServerData() {
 
     }
@@ -65,4 +67,8 @@ public class ConnectServerData {
         this.PDF = PDF;
     }
 
+
+    public String getDescription() {
+        return description;
+    }
 }

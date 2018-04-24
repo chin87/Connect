@@ -16,6 +16,7 @@ public class GlobantConnectEntity extends RealmObject {
     private String image;
     private String URL;
     private String PDF;
+    private String description;
 
     public GlobantConnectEntity(){
 
@@ -28,6 +29,7 @@ public class GlobantConnectEntity extends RealmObject {
         this.image = connectServerData.getImage();
         this.URL = connectServerData.getURL();
         this.PDF = connectServerData.getPDF();
+        this.description = connectServerData.getDescription();
     }
 
     public String getTimestamp() {
@@ -78,4 +80,7 @@ public class GlobantConnectEntity extends RealmObject {
         this.PDF = PDF;
     }
 
+    public String getDescription() {
+        return description;
+    }
 }
